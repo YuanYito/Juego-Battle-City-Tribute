@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    overflow: hidden;
+}
+
+#gameWrapper {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+#canvas {
+    display: block;
+    image-rendering: pixelated;
+    border: 3px solid #444;
+}
+
+#sidebar {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.panel {
+    background: #111;
+    border: 2px solid #333;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.panel h3 {
+    font-size: 11px;
+    color: #aaa;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lives-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.life-icon {
+    width: 14px;
+    height: 14px;
+    background: #f0c040;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.life-icon.p2 {
+    background: #b0c4de;
+}
+
+.enemy-icon {
+    width: 14px;
+    height: 14px;
+    background: #e44;
+    border-radius: 2px;
+    position: relative;
+}
+
+.enemy-icon::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 5px;
+    background: #e44;
+}
+
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#overlay h1 {
+    font-size: 48px;
+    color: #f0c040;
+    text-shadow: 3px 3px 0 #8b6914;
+    margin-bottom: 20px;
+    letter-spacing: 4px;
+}
+
+#overlay p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 4px 0;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 28px;
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    font-weight: bold;
+    background: #f0c040;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+.btn:hover {
+    background: #ffd700;
+}
+
+.btn.p2btn {
+    background: #5090d0;
+    color: #fff;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.btn.p2btn:hover {
+    background: #70b0f0;
+}
+
+#powerupDisplay {
+    font-size: 11px;
+    min-height: 16px;
+}
+
+.pu-badge {
+    display: inline-block;
+    background: #333;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin: 2px 2px;
+    font-size: 10px;
+    color: #fff;
+}
+
+#scoreDisplay {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f0c040;
+}
+
+#reviveMsg {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #5090d0;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #5090d0;
+    font-size: 13px;
+    display: none;
+    z-index: 50;
+}
